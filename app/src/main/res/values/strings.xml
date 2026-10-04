@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">ShippingRateCalculator</string>
+    <string name="app_name">Cotizador de Envíos</string>
+    <string name="titulo_app">Calculadora de Envíos</string>
+    <string name="subtitulo_app">Calcula el costo de tu envío de forma rápida</string>
+    <string name="etiqueta_cantidad">Cantidad de productos</string>
+    <string name="etiqueta_precio_unitario">Precio unitario</string>
+    <string name="formato_precio_unitario">$150.00 MXN</string>
+    <string name="etiqueta_distancia">Distancia de envío</string>
+    <string name="formato_distancia">%1$d km</string>
+    <string name="info_costo_extra">Se aplica un cargo adicional por superar los 50 km</string>
+    <string name="etiqueta_tipo_usuario">Tipo de cliente</string>
+    <string name="usuario_estandar">Estándar</string>
+    <string name="usuario_vip">VIP (10%%)</string>
+    <string name="usuario_premium">Premium (20%%)</string>
+    <string name="etiqueta_tipo_envio">Tipo de envío</string>
+    <string name="envio_economico">Económico</string>
+    <string name="envio_expres">Exprés (+$80)</string>
+    <string name="envio_mismo_dia">Mismo Día (+$180)</string>
+    <string name="etiqueta_cupon">Cupón de descuento</string>
+    <string name="pista_cupon">Ej. AHORRO100</string>
+    <string name="boton_aplicar">Aplicar</string>
+    <string name="boton_aplicado">Aplicado</string>
+    <string name="cupon_aplicado_msj">Cupón AHORRO100 aplicado (-$100 MXN)</string>
+    <string name="cupon_invalido_msj">Cupón no válido o subtotal menor a $500 MXN</string>
+    <string name="titulo_resumen">Resumen de Cuenta</string>
+    <string name="etiqueta_subtotal">Subtotal</string>
+    <string name="etiqueta_descuento_usuario">Descuento de cliente</string>
+    <string name="etiqueta_costo_envio">Costo de envío</string>
+    <string name="etiqueta_descuento_cupon">Descuento por cupón</string>
+    <string name="etiqueta_total">Total a pagar</string>
+    <string name="formato_moneda">$%1$.2f MXN</string>
 </resources>
