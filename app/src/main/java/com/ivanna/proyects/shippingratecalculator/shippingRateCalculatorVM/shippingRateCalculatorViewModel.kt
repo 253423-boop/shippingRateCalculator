@@ -17,7 +17,7 @@ enum class TipoEnvio(val costoAdicional: Double) {
     MISMO_DIA(180.0)
 }
 
-class shippingRateCalculatorViewModel : ViewModel() {
+class ShippingRateCalculatorViewModel : ViewModel() {
 
     private val _cantidad = MutableStateFlow(1)
     val cantidad: StateFlow<Int> = _cantidad.asStateFlow()
@@ -48,6 +48,12 @@ class shippingRateCalculatorViewModel : ViewModel() {
 
     private val _descuentoCupon = MutableStateFlow(0.0)
     val descuentoCupon: StateFlow<Double> = _descuentoCupon.asStateFlow()
+
+    private val _nombreUsuario = MutableStateFlow("")
+    val nombreUsuario: StateFlow<String> = _nombreUsuario.asStateFlow()
+
+    private val _matriculaUsuario = MutableStateFlow("")
+    val matriculaUsuario: StateFlow<String> = _matriculaUsuario.asStateFlow()
 
     private val _total = MutableStateFlow(150.0)
     val total: StateFlow<Double> = _total.asStateFlow()
@@ -84,6 +90,11 @@ class shippingRateCalculatorViewModel : ViewModel() {
         val esValido = _codigoCupon.value == "AHORRO100" && _subtotal.value > 500.0
         _cuponAplicado.value = aplicar && esValido
         calcularCotizacion()
+    }
+
+    fun cargarDatosPerfil() {
+        _nombreUsuario.value = "Ivanna"
+        _matriculaUsuario.value = "253423"
     }
 
     private fun calcularCotizacion() {

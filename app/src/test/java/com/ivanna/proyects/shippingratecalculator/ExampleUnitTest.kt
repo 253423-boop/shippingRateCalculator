@@ -1,6 +1,7 @@
 package com.ivanna.proyects.shippingratecalculator
 
 import org.junit.Test
+
 import org.junit.Assert.*
 
 /**

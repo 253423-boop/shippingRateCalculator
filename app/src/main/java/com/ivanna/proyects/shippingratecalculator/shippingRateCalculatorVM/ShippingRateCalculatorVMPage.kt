@@ -16,6 +16,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -41,7 +42,7 @@ import com.ivanna.proyects.shippingratecalculator.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShippingRateCalculatorVMPage(
-    viewModel: shippingRateCalculatorViewModel = viewModel()
+    viewModel: ShippingRateCalculatorViewModel = viewModel()
 ) {
     val cantidad by viewModel.cantidad.collectAsStateWithLifecycle()
     val distancia by viewModel.distancia.collectAsStateWithLifecycle()
@@ -53,6 +54,8 @@ fun ShippingRateCalculatorVMPage(
     val descuentoUsuario by viewModel.descuentoUsuario.collectAsStateWithLifecycle()
     val costoEnvio by viewModel.costoEnvio.collectAsStateWithLifecycle()
     val descuentoCupon by viewModel.descuentoCupon.collectAsStateWithLifecycle()
+    val nombreUsuario by viewModel.nombreUsuario.collectAsStateWithLifecycle()
+    val matriculaUsuario by viewModel.matriculaUsuario.collectAsStateWithLifecycle()
     val total by viewModel.total.collectAsStateWithLifecycle()
 
     val esCuponValido = codigoCupon == "AHORRO100" && subtotal > 500.0
@@ -79,6 +82,12 @@ fun ShippingRateCalculatorVMPage(
             Text(
                 text = stringResource(R.string.subtitulo_app),
                 style = MaterialTheme.typography.bodySmall
+            )
+
+            Profib(
+                nombre = nombreUsuario,
+                matricula = matriculaUsuario,
+                alCargarDatos = { viewModel.cargarDatosPerfil() }
             )
 
             Card(
@@ -382,5 +391,25 @@ private fun FilaResumen(
             color = if (esDescuento) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurface,
             fontWeight = FontWeight.Bold
         )
+    }
+}
+
+@Composable
+fun Profib(
+    nombre: String,
+    matricula: String,
+    alCargarDatos: () -> Unit
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text("Nombre: ${nombre.ifEmpty { "---" }}")
+            Text("Matrícula: ${matricula.ifEmpty { "---" }}")
+            Button(
+                onClick = alCargarDatos,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Cargar mis datos")
+            }
+        }
     }
 }
